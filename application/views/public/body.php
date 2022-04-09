@@ -44,8 +44,6 @@
         height: 4em;
         width: 8em;
         margin: .2em .7em   ;
-        /* margin-bottom: .7em;
-        margin-top: .7em; */
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
