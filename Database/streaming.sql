@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Apr 2022 pada 10.28
+-- Waktu pembuatan: 14 Apr 2022 pada 15.23
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -139,8 +139,12 @@ CREATE TABLE `live` (
 --
 
 INSERT INTO `live` (`pkey`, `name`, `status`, `createon`, `time`, `img`, `link`) VALUES
-(9, 'aaas', 1, 1, '1649489305', '1649489305.jpg', 'http://94.237.75.137:8080/hls/test.m3u8'),
-(10, 'tttttttt', 1, 1, '1649489311', '1649489311.jpg', 'http://94.237.75.137:8080/hls/test2.m3u8');
+(9, 'aaas', 1, 1, '1649784713', '1649489305.jpg', 'http://94.237.75.137:8080/hls/test.m3u8'),
+(10, 'tttttttt', 1, 1, '1649489311', '1649489311.jpg', 'http://94.237.75.137:8080/hls/test2.m3u8'),
+(11, 'saassa', 1, 1, '1649595887', '1649595887.jpg', 'http://94.237.75.137:8080/hls/streamingkey.m3u8'),
+(12, 'asacascas', 1, 1, '1649595895', '1649595895.jpg', 'http://94.237.75.137:8080/hls/streamingkey.m3u8'),
+(13, 'ascascc', 1, 1, '1649595902', '1649595903.jpg', 'http://94.237.75.137:8080/hls/streamingkey.m3u8'),
+(14, 'ascasc', 1, 1, '1649596572', '1649596572.png', 'http://94.237.75.137:8080/hls/streamingkey.m3u8');
 
 -- --------------------------------------------------------
 
@@ -264,7 +268,7 @@ ALTER TABLE `head`
 -- AUTO_INCREMENT untuk tabel `live`
 --
 ALTER TABLE `live`
-  MODIFY `pkey` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `pkey` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `profile_company`

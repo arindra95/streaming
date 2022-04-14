@@ -14,7 +14,7 @@ class Live extends MY_Controller
 		$dataLive =  $this->getDataRow('live', '*');;
 		if (!empty($idLive))
 			$dataLive = $this->getDataRow('live', '*', array('pkey' => $idLive));
-		$dataLiveAll = $this->getDataRow('live', '*');
+		$dataLiveAll = $this->getDataRow('live', '*', array('status' => '1'));
 		$ads = $this->getDataRow('ads', '*', array('status' => '1'));
 
 		$data['html']['ads'] = $ads;
