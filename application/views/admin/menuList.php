@@ -7,11 +7,10 @@
     <thead class="bg-primary text-white">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Nama</th>
+            <th scope="col">Title</th>
             <th scope="col">Dibuat Oleh</th>
             <th scope="col">Waktu</th>
             <th scope="col" class="text-center">Status</th>
-            <th scope="col" class="text-center">Logo Live</th>
             <th scope="col" class="text-center">Action</th>
         </tr>
     </thead>
@@ -20,7 +19,7 @@
         foreach ($dataList as $value) { ?>
             <tr>
                 <th scope="row"><?php echo $i++ ?></th>
-                <td><?php echo $value['name'] ?></td>
+                <td><?php echo $value['title'] ?></td>
                 <td><?php echo  $value['createname'] . ' | ' . $value['rolename'] ?></td>
                 <td><?php echo  date("d / m / Y  H:i", $value['time']) ?></td>
                 <td class="text-center"><input type="checkbox" class="form-check-input" name='status' value="<?php echo  $value['pkey'] ?>" <?php if (!empty($value['status'])) echo 'checked' ?>></td>
@@ -82,14 +81,14 @@
         })
     })
     $('tbody').find('[name=status]').click(function() {
+
         var obj = $(this);
         var value = $(obj).val();
-        var arrCheckBox = $('tbody').find('input:checkbox');
         $.ajax({
                 url: '<?= base_url('Admin/ajax') ?>',
                 type: 'POST',
                 data: {
-                    action: 'statusLive',
+                    action: 'statusMenu',
                     pkey: value
                 },
             })

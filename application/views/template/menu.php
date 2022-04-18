@@ -30,9 +30,9 @@ $role = $this->session->userdata('role');
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Control:</h6>
                 <a class="collapse-item" href="<?= base_url('Admin/adsList') ?>">Iklan</a>
+                <a class="collapse-item" href="<?= base_url('Admin/headList') ?>">Header Seo</a>
+                <a class="collapse-item" href="<?= base_url('Admin/menuList') ?>">Menu</a>
                 <a class="collapse-item" href="<?= base_url('Admin/liveList') ?>">Live Streaming</a>
-                <!-- <a class="collapse-item" href="<?= base_url('Admin/headList') ?>">Head Seo</a>
-                <a class="collapse-item" href="<?= base_url('Admin/contentList') ?>">Content</a> -->
             </div>
         </div>
     </li>

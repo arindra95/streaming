@@ -13,7 +13,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset/public/'); ?>css/slick.css" />
     <link rel="stylesheet" type="text/css" href="<?= base_url('asset/public/'); ?>css/slick-theme.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
@@ -27,6 +27,8 @@
     <title>Vidio</title>
 </head>
 <style>
+
+
     .navbar {
         box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%);
 
@@ -38,24 +40,23 @@
         margin: 0;
     }
 
-    .content-panel {
+    .content-panel{
         height: 4em;
         width: 8em;
-        margin: .2em .7em;
+        margin: .2em .7em   ;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         border-radius: 5px;
     }
-
     .containers {
         padding: 0 5%;
     }
 
-    .advertising .content-panel {
-        width: 300px;
+    .advertising .content-panel{
+        width: 350px;
         height: 250px;
-        margin: auto;
+        margin: auto  ;
         /* margin-bottom: .7em;
         margin-top: .7em; */
         background-position: center;
@@ -86,11 +87,11 @@
     }
 
     .slick-arrow.prev-arrow {
-        left: -30px;
+        left: -10px;
     }
 
     .slick-arrow.next-arrow {
-        right: -30px
+        right: -10px
     }
 
     .slick-list {
@@ -102,7 +103,9 @@
         margin: 0;
         padding: 0;
     }
-
+    .embed-responsive{
+        height:500px;
+    }
 
     .stream-data {
         background-color: #cecece;
@@ -113,39 +116,48 @@
         /* padding: 1.5em; */
     }
 
-    /*     .video-js {
+    /* .video-js {
         width: 500px;
         height: 340px;
     } */
 
 
 
-    @media (max-width: 1200px) {
-        /*        .video-js {
-            width: 670px;
+    @media (max-width: 1500px) {
+     /*    .video-js {
+            width: 170px;
             height: 440px;
+            margin:auto;
         } */
+
+        .advertising .content-panel{
+            width: 100%;
+        }
+
+
     }
 
     @media (max-width: 987px) {
-        /*        .video-js {
+ /*        .video-js {
             width: 690px;
             height: 340px;
         } */
-
-        /* .advertising {
+        .advertising .content-panel{
+            width: 350px;
+        }
+        .advertising {
 
             margin-top: 2em;
-        } */
+        }
     }
 
     @media (max-width: 763px) {
-        /*      .video-js {
+   /*      .video-js {
             width: 510px;
             height: 240px;
         } */
 
-
+   
     }
 
     @media (max-width: 565px) {
@@ -156,7 +168,9 @@
         .slick-arrow.next-arrow {
             right: -2px
         }
-
+        .embed-responsive{
+        height:300px;
+        }
         /* .video-js {
             width: 455px;
             height: 200px;
@@ -169,7 +183,7 @@
             height: 200px;
         } */
 
-        /* .advertising .content-panel {
+        /* .advertising .content-panel{
             height: 4em;
             background-size: contain;
         } */
@@ -182,7 +196,7 @@
             height: 200px;
         } */
 
-        /* .advertising .content-panel {
+        /* .advertising .content-panel{
             height: 3em;
             background-size: contain;
         } */
@@ -220,12 +234,12 @@
                 <ul class="list-streaming">
                     <?php foreach ($dataLiveAll as $dataLiveAllKey => $dataLiveAllValue) { ?>
                         <div>
-                            <li style="width:100%;display:inline-block">
-                                <a href="<?php echo base_url('Live/chanel/') . $dataLiveAllValue['pkey'] ?>">
-                                    <div class="content-panel" style="background-image:url(<?php echo base_url('uploads/') . $dataLiveAllValue['img'] ?>)"></div>
-                                </a>
-                            </li>
-                        </div>
+                        <li style="width:100%;display:inline-block">
+                            <a  href="<?php echo base_url('Live/chanel/') . $dataLiveAllValue['pkey'] ?>">
+                                <div class="content-panel" style="background-image:url(<?php echo base_url('uploads/') .$dataLiveAllValue['img'] ?>)"></div>
+                            </a>
+                        </li>
+                    </div>
                     <?php } ?>
                 </ul>
             </div>
@@ -234,40 +248,40 @@
             <div style="clear: both;height: 4em;"></div>
             <!-- Jumbotron -->
             <div class="content">
-                <div class="container-fluid">
-                    <div class="row ">
-                        <div class="col-lg-3" style="">
-                            <div class="advertising">
-                                <div class="row">
-                                    <?php foreach ($ads as $adsKey => $adsValue) { ?>
-                                        <div class="col-sm-12 py-1">
-                                            <!-- <img src="<?php echo base_url('uploads/' . $adsValue['img']) ?>" alt=""> -->
-                                            <div class="content-panel" style="background-image:url(<?php echo base_url('uploads/' . $adsValue['img']) ?>)"></div>
-                                        </div>
-                                    <?php } ?>
+                    <div class="container-fluid">
+                        <div class="row ">
+                        <div class="col-lg-3" style="text-align: center;">
+                                <div class="advertising">
+                                    <div class="row" >
+                                        <?php foreach ($ads as $adsKey => $adsValue) { ?>
+                                            <div class="col-sm-12 py-1" >
+                                                <!-- <img src="<?php echo base_url('uploads/' . $adsValue['img']) ?>" alt=""> -->
+                                                <div class="content-panel" style="background-image:url(<?php echo base_url('uploads/' . $adsValue['img']) ?>)"></div>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 embed-responsive embed-responsive-4by3" style="text-align: center;">
-                            <video autoplay="true" id="my-video" class="video-js embed-responsive-item" controls preload="auto" poster="<?php echo base_url('uploads/') . $dataLive['img'] ?>" data-setup="{}">
-                                <source src="<?php echo $dataLive['link'] ?>" type="application/x-mpegURL" />
-                            </video>
-                        </div>
-                        <div class="col-lg-3" style="">
-                            <div class="advertising">
-                                <div class="row">
-                                    <?php foreach ($ads as $adsKey => $adsValue) { ?>
-                                        <div class="col-sm-12 py-1">
-                                            <!-- <img src="<?php echo base_url('uploads/' . $adsValue['img']) ?>" alt=""> -->
-                                            <div class="content-panel" style="background-image:url(<?php echo base_url('uploads/' . $adsValue['img']) ?>)"></div>
-                                        </div>
-                                    <?php } ?>
+                            <div class="col-lg-6 embed-responsive embed-responsive-4by3" style="text-align: center;">
+                                <video autoplay="true" id="my-video" class="video-js embed-responsive-item" controls preload="auto" poster="<?php echo base_url('uploads/') . $dataLive['img'] ?>" data-setup="{}">
+                                    <source src="<?php echo $dataLive['link'] ?>" type="application/x-mpegURL" />
+                                </video>
+                            </div>
+                            <div class="col-lg-3" style="text-align: center;">
+                                <div class="advertising">
+                                    <div class="row" >
+                                        <?php foreach ($ads as $adsKey => $adsValue) { ?>
+                                            <div class="col-sm-12 py-1" >
+                                                <!-- <img src="<?php echo base_url('uploads/' . $adsValue['img']) ?>" alt=""> -->
+                                                <div class="content-panel" style="background-image:url(<?php echo base_url('uploads/' . $adsValue['img']) ?>)"></div>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             <!-- Jumbotron End-->
 
 
@@ -299,17 +313,17 @@
         $('.list-streaming').slick({
             dots: false,
             infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 6,
+            slidesToShow: 5,
+            slidesToScroll: 3,
             variableWidth: true,
-            centerMode: true,
+            centerMode: false,
             nextArrow: '<div class="slick-arrow next-arrow"><i class="fa fa-chevron-right"></i></div>',
             prevArrow: '<div class="slick-arrow prev-arrow"><i class="fa fa-chevron-left"></i></div>',
             responsive: [{
                     breakpoint: 1024,
                     settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
+                        slidesToShow: 4,
+                        slidesToScroll: 4,
                     }
                 },
                 {

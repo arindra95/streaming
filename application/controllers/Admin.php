@@ -214,9 +214,6 @@ class Admin extends MY_Controller
 		$this->template($data);
 	}
 
-
-
-
 	public function headList()
 	{
 		$tableName = 'head';
@@ -286,6 +283,82 @@ class Admin extends MY_Controller
 
 		$data['html']['baseUrl'] = $baseUrl;
 		$data['html']['title'] = 'Input Data Transaksi Deposit';
+		$data['html']['err'] = $this->genrateErr();
+		$data['url'] = 'admin/' . __FUNCTION__ . 'Form';
+		$this->template($data);
+	}
+
+	public function menuList()
+	{
+		$tableName = 'menu';
+
+		$join = array(
+			array('account', 'account.pkey=' . $tableName . '.createon', 'left'),
+			array('role', 'role.pkey=account.role', 'left'),
+		);
+		$select = '
+			' . $tableName . '.*,
+			account.name as createname,
+			account.role as createrole,
+			role.name as rolename,
+		';
+
+		$dataList = $this->getDataRow($tableName, $select, '', '', $join);
+		$data['html']['title'] = 'List Menu';
+		$data['html']['dataList'] = $dataList;
+		$data['html']['tableName'] = $tableName;
+		$data['html']['form'] = get_class($this) . '/menu';
+		$data['url'] = 'admin/menuList';
+		$this->template($data);
+	}
+	public function menu($id = '')
+	{
+		$tableName = 'menu';
+		$tableDetail = '';
+		$baseUrl = get_class($this) . '/' . __FUNCTION__;
+		$detailRef = '';
+		$formData = array(
+			'pkey' => 'pkey',
+			'title' => 'title',
+			'link' => 'link',
+			'createon' => 'sesionid',
+			'time' => 'time',
+		);
+		$formDetail = array();
+
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			if (empty($_POST['action'])) redirect(base_url($baseUrl . 'List'));
+			//validate form
+			$arrMsgErr = array();
+			if (empty($_POST['title']))
+				array_push($arrMsgErr, 'Title Wajib Di isi');
+			if (empty($_POST['link']))
+				array_push($arrMsgErr, 'Link Wajib Di isi');
+
+			$this->session->set_flashdata('arrMsgErr', $arrMsgErr);
+			//validate form
+			if (empty(count($arrMsgErr)))
+				switch ($_POST['action']) {
+					case 'add':
+						$refkey = $this->insert($tableName, $this->dataForm($formData));
+						$this->insertDetail($tableDetail, $formDetail, $refkey);
+						redirect(base_url($baseUrl . 'List')); //wajib terakhir
+						break;
+					case 'update':
+						$this->update($tableName, $this->dataForm($formData), array('pkey' => $_POST['pkey']));
+						$this->updateDetail($tableDetail, $formDetail, $detailRef, $id);
+						redirect(base_url($baseUrl . 'List'));
+						break;
+				}
+		}
+
+		if (!empty($id)) {
+			$dataRow = $this->getDataRow($tableName, '*', array('pkey' => $id), 1)[0];
+			$this->dataFormEdit($formData, $dataRow);
+		}
+
+		$data['html']['baseUrl'] = $baseUrl;
+		$data['html']['title'] = 'Input Data Menu';
 		$data['html']['err'] = $this->genrateErr();
 		$data['url'] = 'admin/' . __FUNCTION__ . 'Form';
 		$this->template($data);
@@ -413,45 +486,19 @@ class Admin extends MY_Controller
 					$status = '0';
 				$this->update('live', array('status' => $status), array('pkey' => $_POST['pkey']));
 				break;
+			case 'statusHead':
+				$this->update('head', array('status' => '0'), array('status' => '1'));
+				$this->update('head', array('status' => '1'), array('pkey' => $_POST['pkey']));
+				break;
+			case 'statusMenu':
+				$oldststus = $this->getDataRow('menu', 'status', array('pkey' => $_POST['pkey']));
+				$status = '1';
+				if ($oldststus[0]['status'] == '1')
+					$status = '0';
+				$this->update('menu', array('status' => $status), array('pkey' => $_POST['pkey']));
+				break;
 			default:
 				echo  $_POST['action'] . ' action is not in the list';
-				break;
-		}
-	}
-
-	public function export($action, $param)
-	{
-		switch ($action) {
-			case 'student':
-				$exportData = array();
-				$dataSelect = '
-				students.*,
-				class.name as classname,
-				students_detail.memorikey
-				';
-				$dataJoin = array(
-					array('class', 'class.pkey=' . $param, 'left'),
-					array('students_detail', 'students_detail.studentkey=students.pkey', 'left'),
-					array('student_memori_detail', 'students_detail.studentkey=students.pkey', 'left'),
-				);
-				$data = $this->getDataRow('students', $dataSelect, array('classkey' => $param), '', $dataJoin, 'students.name ASC');
-
-				foreach ($data as $dataKey => $dataValue) {
-					$subExportData = array(
-						'studentname' => $dataValue['name'],
-						'classname' => $dataValue['classname'],
-					);
-					print_r($dataValue);
-					echo '<br>';
-					echo '<br>';
-				}
-
-				break;
-			case 'label':
-				# code...
-				break;
-			default:
-				# code...
 				break;
 		}
 	}
