@@ -11,7 +11,6 @@
             <th scope="col">Dibuat Oleh</th>
             <th scope="col">Waktu</th>
             <th scope="col" class="text-center">Status</th>
-            <th scope="col" class="text-center">Logo Live</th>
             <th scope="col" class="text-center">Action</th>
         </tr>
     </thead>
@@ -24,9 +23,6 @@
                 <td><?php echo  $value['createname'] . ' | ' . $value['rolename'] ?></td>
                 <td><?php echo  date("d / m / Y  H:i", $value['time']) ?></td>
                 <td class="text-center"><input type="checkbox" class="form-check-input" name='status' value="<?php echo  $value['pkey'] ?>" <?php if (!empty($value['status'])) echo 'checked' ?>></td>
-                <td class="text-center">
-                    <img src="<?php echo base_url('uploads/' . $value['img']) ?>" class="rounded" alt="Logo" style="width: 80px;">
-                </td>
                 <td style="width: 180px;">
                     <a href="<?php echo base_url($form . '/' . $value['pkey']) ?>" class="btn btn-primary">Edit</a>
                     <button class="btn btn-danger" name="delete" data='<?php echo $tableName ?>' value="<?php echo $value['pkey'] ?>">Delete</button>
@@ -85,18 +81,25 @@
         })
     })
     $('tbody').find('[name=status]').click(function() {
+
         var obj = $(this);
         var value = $(obj).val();
         var arrCheckBox = $('tbody').find('input:checkbox');
+        $.each(arrCheckBox, function(key, value) {
+            $(value).prop('checked', false);
+        })
+
+
         $.ajax({
                 url: '<?= base_url('Admin/ajax') ?>',
                 type: 'POST',
                 data: {
-                    action: 'statusLive',
+                    action: 'statusContent',
                     pkey: value
                 },
             })
             .done(function() {
+                $(obj).prop('checked', true);
                 console.log('success');
             })
             .fail(function() {

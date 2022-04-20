@@ -11,7 +11,7 @@
             <th scope="col">Dibuat Oleh</th>
             <th scope="col">Waktu</th>
             <th scope="col" class="text-center">Status</th>
-            <th scope="col" class="text-center">Logo Live</th>
+            <th scope="col">Logo</th>
             <th scope="col" class="text-center">Action</th>
         </tr>
     </thead>
@@ -85,18 +85,25 @@
         })
     })
     $('tbody').find('[name=status]').click(function() {
+
         var obj = $(this);
         var value = $(obj).val();
         var arrCheckBox = $('tbody').find('input:checkbox');
+        $.each(arrCheckBox, function(key, value) {
+            $(value).prop('checked', false);
+        })
+
+
         $.ajax({
                 url: '<?= base_url('Admin/ajax') ?>',
                 type: 'POST',
                 data: {
-                    action: 'statusLive',
+                    action: 'statusBrand',
                     pkey: value
                 },
             })
             .done(function() {
+                $(obj).prop('checked', true);
                 console.log('success');
             })
             .fail(function() {
