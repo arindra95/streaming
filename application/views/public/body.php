@@ -27,12 +27,16 @@
     <title>Vidio</title>
 </head>
 <style>
-
+    /* #my-video{ position: relative; } */
 
     .navbar {
         box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%);
 
     }
+
+     .hide{
+  display:none;
+}   
 
     .list-streaming {
         list-style: none;
@@ -50,8 +54,24 @@
         border-radius: 5px;
     }
 
+
+    .content-panel-hide{
+        height: 4em;
+        width: 8em;
+        margin: .2em .7em   ;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 5px;
+    }
+    .containers {
+        padding: 0 5%;
+    }
+
     .advertising .content-panel{
-        width: 100%;
+        width: 350px;
+        height: 250px;
+        text-align:center;
         margin: auto  ;
         /* margin-bottom: .7em;
         margin-top: .7em; */
@@ -59,6 +79,25 @@
         background-repeat: no-repeat;
         background-size: cover;
         border-radius: 0px;
+    }
+
+    .advertising-hide .content-panel-hide{
+        width: 350px;
+        height: 250px;
+        text-align:center;
+        margin: auto  ;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 0px;
+    }
+
+    #ads-hide1{
+        width: 400px;
+    }
+
+    #ads-hide2{
+        width: 400px;
     }
 
     .slick-arrow {
@@ -83,11 +122,11 @@
     }
 
     .slick-arrow.prev-arrow {
-        left: -30px;
+        left: -10px;
     }
 
     .slick-arrow.next-arrow {
-        right: -30px
+        right: -10px
     }
 
     .slick-list {
@@ -99,7 +138,9 @@
         margin: 0;
         padding: 0;
     }
-
+    .embed-responsive{
+        height:500px;
+    }
 
     .stream-data {
         background-color: #cecece;
@@ -107,28 +148,55 @@
         border-radius: 10px;
         width: 150px;
         text-align: center;
-        /* padding: 1.5em; */
     }
 
-/*     .video-js {
-        width: 500px;
-        height: 340px;
-    } */
+    .flex{
+        display:flex;
+        justify-content: space-between ;
 
- 
+    }
+
+
+
+
+    @media (max-width: 1500px) {
+
+
+        .advertising .content-panel{
+            width: 100%;
+        }
+
+        /* .advertising-hide .content-panel-hide{
+            width: 50%;
+        } */
+
+    }
+
 
     @media (max-width: 1200px) {
- /*        .video-js {
-            width: 670px;
-            height: 440px;
-        } */
+
+        #ads-hide1{
+        width: 150px;
+    }
+
+    #ads-hide2{
+        width: 150px;
+    }
+
+    .advertising-hide .content-panel-hide{
+        width: 150px;
+        height: 100px;
+    }
+
     }
 
     @media (max-width: 987px) {
- /*        .video-js {
-            width: 690px;
-            height: 340px;
-        } */
+
+        .advertising .content-panel{
+            width: 350px;
+        }
+
+   
 
         .advertising {
 
@@ -137,10 +205,6 @@
     }
 
     @media (max-width: 763px) {
-   /*      .video-js {
-            width: 510px;
-            height: 240px;
-        } */
 
    
     }
@@ -153,36 +217,31 @@
         .slick-arrow.next-arrow {
             right: -2px
         }
+        .embed-responsive{
+            height:300px;
+        }
 
-        /* .video-js {
-            width: 455px;
-            height: 200px;
-        } */
+
+        #ads-hide1{
+        width: 75px;
+    }
+
+    #ads-hide2{
+        width: 75px;
+    }
+        .advertising-hide .content-panel-hide{
+        width: 75px;
+        height: 50px;
+        }
     }
 
     @media (max-width: 437px) {
-        /* .video-js {
-            width: 430px;
-            height: 200px;
-        } */
-
-        .advertising .content-panel{
-            height: 4em;
-            background-size: contain;
-        }
+  
     }
 
 
     @media (max-width: 420px) {
-        /* .video-js {
-            width: 380px;
-            height: 200px;
-        } */
-
-        .advertising .content-panel{
-            height: 3em;
-            background-size: contain;
-        }
+ 
     }
 </style>
 
@@ -213,7 +272,7 @@
         <div style="clear: both;height: 2em;"></div>
 
         <div style="min-height:90vh;">
-            <div class="container" style="background-color: #eee3;">
+            <div class="containers" style="background-color: #eee3;">
                 <ul class="list-streaming">
                     <?php foreach ($dataLiveAll as $dataLiveAllKey => $dataLiveAllValue) { ?>
                         <div>
@@ -230,16 +289,55 @@
 
             <div style="clear: both;height: 4em;"></div>
             <!-- Jumbotron -->
-            <div id="" class="">
-                <div class="content">
-                    <div class="container">
+            <div class="content">
+                    <div class="container-fluid" style="  position: relative;">
                         <div class="row ">
+                            <div class="col-lg-3" style="text-align: center;">
+                                <div id="ads1" class="advertising">
+                                    <div class="row" >
+                                        <?php foreach ($ads as $adsKey => $adsValue) { ?>
+                                            <div class="col-sm-12 py-1" >
+                                                <div class="content-panel" style="background-image:url(<?php echo base_url('uploads/' . $adsValue['img']) ?>)"></div>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-lg-6 embed-responsive embed-responsive-4by3" style="text-align: center;">
-                                <video autoplay="true" id="my-video" class="video-js embed-responsive-item" controls preload="auto" poster="<?php echo base_url('uploads/') . $dataLive['img'] ?>" data-setup="{}">
+                                <div class="movetovideojs flex">
+<!--                                         <div class="row">
+                                        <div class="col-lg-3"> -->
+                                        <div id="ads-hide1" class="advertising-hide hide">
+                                                <div class="row" >
+                                                    <?php foreach ($ads as $adsKey => $adsValue) { ?>
+                                                        <div id="image-ads-<?php echo $adsKey ?>" class="col-sm-12 py-1" style="">
+                                                            <a href="#" id="close-adss" onclick="document.getElementById('image-ads-<?php echo $adsKey ?>').style.display = 'none';" style="cursor:pointer;"><img src="https://3.bp.blogspot.com/-ZZSacDHLWlM/VhvlKTMjbLI/AAAAAAAAF2M/UDzU4rrvcaI/s1600/btn_close.gif"></a>
+                                                            <div class="content-panel-hide" style="background-image:url(<?php echo base_url('uploads/' . $adsValue['img']) ?>)"></div>
+                                                        </div>
+                                                    <?php } ?>
+                                                </div>
+                                        </div>
+                                        <!-- </div> -->
+                                        <!-- <div class="col-lg-6"></div> -->
+                                        <!-- <div class="col-lg-3"> -->
+                                        <div id="ads-hide2" class="advertising-hide hide">
+                                            <div class="row" >
+                                                <?php foreach ($ads as $adsKey => $adsValue) { ?>
+                                                    <div id="image-ads2-<?php echo $adsKey ?>" class="col-sm-12 py-1" >
+                                                        <a href="#" id="close-ads2" onclick="document.getElementById('image-ads2-<?php echo $adsKey ?>').style.display = 'none';" style="cursor:pointer;"><img src="https://3.bp.blogspot.com/-ZZSacDHLWlM/VhvlKTMjbLI/AAAAAAAAF2M/UDzU4rrvcaI/s1600/btn_close.gif"></a>
+                                                        <div class="content-panel-hide" style="background-image:url(<?php echo base_url('uploads/' . $adsValue['img']) ?>)"></div>
+                                                    </div>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                        <!-- </div>
+                                        </div> -->
+                                </div>
+                                <video autoplay="true" id="my-video" class="video-js videos embed-responsive-item" controls preload="auto" poster="<?php echo base_url('uploads/') . $dataLive['img'] ?>" data-setup="{}">
                                     <source src="<?php echo $dataLive['link'] ?>" type="application/x-mpegURL" />
                                 </video>
                             </div>
-                            <div class="col-lg-6" style="text-align: center;">
+                            <div id="ads2"class="col-lg-3" style="text-align: center;">
                                 <div class="advertising">
                                     <div class="row" >
                                         <?php foreach ($ads as $adsKey => $adsValue) { ?>
@@ -254,8 +352,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
             <!-- Jumbotron End-->
 
 
@@ -282,22 +378,90 @@
     </script>
     <script type="text/javascript" src="<?= base_url('asset/public/'); ?>js/slick.min.js"></script>
 
+    <script type="text/javascript">
+
+
+        $(document).ready(function(){
+
+            var options = {
+                playbackRates: [1, 1.5, 2],
+                muted: true,
+            };
+
+            video = videojs('my-video',options);
+
+
+                $('.movetovideojs').appendTo($('#my-video'));
+                video.on('fullscreenchange', function() {
+
+                    if(this.isFullscreen_){
+
+                        $('#ads-hide1 , #ads-hide2').show();
+                        $('#image-ads-0 , #image-ads-1 , #image-ads-2').show();
+                        $('#image-ads2-0 , #image-ads2-1 , #image-ads2-2').show();
+                        
+                        var counter = 0;
+                        function showHide() {
+                            setTimeout(() => {
+                                
+                                $('#image-ads-0 , #image-ads-1 , #image-ads-2').show();
+                                $('#image-ads2-0 , #image-ads2-1 , #image-ads2-2').show();
+                                // $('#image-ads-'+counter).show();
+                                setTimeout(() => {
+                                    $('#image-ads-0 , #image-ads-1 , #image-ads-2').hide();
+                                    $('#image-ads2-0 , #image-ads2-1 , #image-ads2-2').hide();
+                                    // $('#image-ads-'+counter).hide();
+
+                                    showHide();
+                                }, 5000);
+
+                            }, 5000);
+
+                        }
+
+                        showHide();
+                    
+
+                    }else{
+
+                        $('#ads-hide1 , #ads-hide2').hide();
+                        $('#image-ads-0 , #image-ads-1 , #image-ads-2').hide();
+                        $('#image-ads2-0 , #image-ads2-1 , #image-ads2-2').hide();
+                        // clearInterval(timer);
+
+                        // $('#ads-hide1').fadeOut();
+                        // $('#ads-hide2').fadeOut(); 
+                        // $('#image-ads-0').fadeOut();
+                        // $('#image-ads-1').fadeOut();
+                        // $('#image-ads-2').fadeOut();
+                    }
+
+                }); 
+
+
+
+
+});
+
+    </script>
 
     <script type="text/javascript">
+
+
         $('.list-streaming').slick({
             dots: false,
             infinite: true,
-            slidesToShow: 4,
-            slidesToScroll: 4,
+            slidesToShow: 5,
+            slidesToScroll: 3,
             variableWidth: true,
-            centerMode: true,
+            centerMode: false,
             nextArrow: '<div class="slick-arrow next-arrow"><i class="fa fa-chevron-right"></i></div>',
             prevArrow: '<div class="slick-arrow prev-arrow"><i class="fa fa-chevron-left"></i></div>',
             responsive: [{
                     breakpoint: 1024,
                     settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
+                        slidesToShow: 4,
+                        slidesToScroll: 4,
                     }
                 },
                 {
