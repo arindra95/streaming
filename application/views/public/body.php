@@ -27,46 +27,37 @@
     <title>Straming</title>
 </head>
 <style>
-<<<<<<< HEAD
     /* #my-video{ position: relative; } */
 
-=======
->>>>>>> 28d3c5e28fd4cc2eb215a0159866352257d98f41
     .navbar {
         box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%);
 
     }
 
-<<<<<<< HEAD
      .hide{
   display:none;
 }   
 
-=======
->>>>>>> 28d3c5e28fd4cc2eb215a0159866352257d98f41
     .list-streaming {
         list-style: none;
         padding: 0;
         margin: 0;
     }
 
-<<<<<<< HEAD
     .content-panel{
         height: 4em;
         width: 8em;
         margin: .2em .7em   ;
-=======
+    }
     .content-panel {
         height: 4em;
         width: 8em;
         margin: .2em .7em;
->>>>>>> 28d3c5e28fd4cc2eb215a0159866352257d98f41
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         border-radius: 5px;
     }
-<<<<<<< HEAD
 
 
     .content-panel-hide{
@@ -112,8 +103,7 @@
 
     #ads-hide2{
         width: 400px;
-=======
-
+    }
     .containers {
         padding: 0 5%;
     }
@@ -128,7 +118,6 @@
         background-repeat: no-repeat;
         background-size: cover;
         border-radius: 0px;
->>>>>>> 28d3c5e28fd4cc2eb215a0159866352257d98f41
     }
 
     .slick-arrow {
@@ -169,14 +158,11 @@
         margin: 0;
         padding: 0;
     }
-<<<<<<< HEAD
     .embed-responsive{
         height:500px;
-=======
-
+    }
     .embed-responsive {
         height: 500px;
->>>>>>> 28d3c5e28fd4cc2eb215a0159866352257d98f41
     }
 
     .stream-data {
@@ -187,7 +173,6 @@
         text-align: center;
     }
 
-<<<<<<< HEAD
     .flex{
         display:flex;
         justify-content: space-between ;
@@ -225,7 +210,6 @@
         width: 150px;
         height: 100px;
     }
-=======
     /* .video-js {
         width: 500px;
         height: 340px;
@@ -244,21 +228,18 @@
             width: 100%;
         }
 
->>>>>>> 28d3c5e28fd4cc2eb215a0159866352257d98f41
 
     }
 
     @media (max-width: 987px) {
 
-<<<<<<< HEAD
         .advertising .content-panel{
-=======
         /*        .video-js {
             width: 690px;
             height: 340px;
         } */
+    }
         .advertising .content-panel {
->>>>>>> 28d3c5e28fd4cc2eb215a0159866352257d98f41
             width: 350px;
         }
 
@@ -271,17 +252,14 @@
     }
 
     @media (max-width: 763px) {
-<<<<<<< HEAD
 
    
-=======
         /*      .video-js {
             width: 510px;
             height: 240px;
         } */
 
 
->>>>>>> 28d3c5e28fd4cc2eb215a0159866352257d98f41
     }
 
     @media (max-width: 565px) {
@@ -292,28 +270,6 @@
         .slick-arrow.next-arrow {
             right: -2px
         }
-<<<<<<< HEAD
-        .embed-responsive{
-            height:300px;
-        }
-
-
-        #ads-hide1{
-        width: 75px;
-    }
-
-    #ads-hide2{
-        width: 75px;
-    }
-        .advertising-hide .content-panel-hide{
-        width: 75px;
-        height: 50px;
-        }
-    }
-
-    @media (max-width: 437px) {
-  
-=======
 
         .embed-responsive {
             height: 300px;
@@ -335,24 +291,10 @@
             height: 4em;
             background-size: contain;
         } */
->>>>>>> 28d3c5e28fd4cc2eb215a0159866352257d98f41
     }
 
 
     @media (max-width: 420px) {
-<<<<<<< HEAD
- 
-=======
-        /* .video-js {
-            width: 380px;
-            height: 200px;
-        } */
-
-        /* .advertising .content-panel{
-            height: 3em;
-            background-size: contain;
-        } */
->>>>>>> 28d3c5e28fd4cc2eb215a0159866352257d98f41
     }
 </style>
 
@@ -388,21 +330,12 @@
                 <ul class="list-streaming">
                     <?php foreach ($dataLiveAll as $dataLiveAllKey => $dataLiveAllValue) { ?>
                         <div>
-<<<<<<< HEAD
-                        <li style="width:100%;display:inline-block">
-                            <a  href="<?php echo base_url('Live/chanel/') . $dataLiveAllValue['pkey'] ?>">
-                                <div class="content-panel" style="background-image:url(<?php echo base_url('uploads/') .$dataLiveAllValue['img'] ?>)"></div>
-                            </a>
-                        </li>
-                    </div>
-=======
                             <li style="width:100%;display:inline-block">
                                 <a href="<?php echo base_url('Live/chanel/') . $dataLiveAllValue['pkey'] ?>">
                                     <div class="content-panel" style="background-image:url(<?php echo base_url('uploads/') . $dataLiveAllValue['img'] ?>)"></div>
                                 </a>
                             </li>
                         </div>
->>>>>>> 28d3c5e28fd4cc2eb215a0159866352257d98f41
                     <?php } ?>
                 </ul>
             </div>
@@ -411,7 +344,6 @@
             <div style="clear: both;height: 4em;"></div>
             <!-- Jumbotron -->
             <div class="content">
-<<<<<<< HEAD
                     <div class="container-fluid" style="  position: relative;">
                         <div class="row ">
                             <div class="col-lg-3" style="text-align: center;">
@@ -469,7 +401,6 @@
                                             </div>
                                         <?php } ?>
                                     </div>
-=======
                 <div class="container-fluid">
                     <div class="row ">
                         <div class="col-lg-3" style="text-align: center;">
@@ -498,19 +429,15 @@
                                             <div class="content-panel" style="background-image:url(<?php echo base_url('uploads/' . $adsValue['img']) ?>)"></div>
                                         </div>
                                     <?php } ?>
->>>>>>> 28d3c5e28fd4cc2eb215a0159866352257d98f41
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-=======
                 <div class="conatainer">
                     <?php echo $content['content'] ?>
                 </div>
             </div>
->>>>>>> 28d3c5e28fd4cc2eb215a0159866352257d98f41
             <!-- Jumbotron End-->
         </div>
 
@@ -555,7 +482,7 @@
                         $('#ads-hide1 , #ads-hide2').show();
                         $('#image-ads-0 , #image-ads-1 , #image-ads-2').show();
                         $('#image-ads2-0 , #image-ads2-1 , #image-ads2-2').show();
-                        
+
                         var counter = 0;
                         function showHide() {
                             setTimeout(() => {
