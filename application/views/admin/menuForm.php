@@ -18,25 +18,18 @@ if ($action == 'update')
 						<input type="hidden" name="action" value="<?php echo $action ?>">
 
 						<div class="form-group row">
-							<label for="name" class="col-sm-3 col-form-label">Nama</label>
+							<label for="title" class="col-sm-3 col-form-label">Title</label>
 							<div class="col-sm">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Nama">
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="link" class="col-sm-3 col-form-label">Link Streaming</label>
-							<div class="col-sm">
-								<input type="text" class="form-control" id="link" name="link" placeholder="Link Streaming" value="http://94.237.69.116:8080/hls/streamingkey.m3u8">
+								<input type="text" class="form-control" id="title" name="title" placeholder="Title">
 							</div>
 						</div>
 
 						<div class="form-group row">
-							<label for="img" class="col-sm-3 ">Logo Streaming</label>
+							<label for="link" class="col-sm-3 col-form-label">Lin</label>
 							<div class="col-sm">
-								<input type="file" class="form-control-file" id="img" name="img" accept=".jpg,.png,.jpeg">
+								<input type="text" class="form-control" id="link" name="link" placeholder="Link">
 							</div>
 						</div>
-
 
 						<div class="form-group row mt-5">
 							<div class="col-sm">
