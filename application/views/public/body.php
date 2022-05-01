@@ -31,12 +31,11 @@
 
     .navbar {
         box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%);
-
     }
 
-     .hide{
-  display:none;
-}   
+    .hide{
+    display:none;
+    }   
 
     .list-streaming {
         list-style: none;
@@ -60,26 +59,12 @@
     }
 
 
-    .content-panel-hide{
-        height: 4em;
-        width: 8em;
-        margin: .2em .7em   ;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 5px;
-    }
-    .containers {
-        padding: 0 5%;
-    }
 
     .advertising .content-panel{
         width: 350px;
         height: 250px;
         text-align:center;
         margin: auto  ;
-        /* margin-bottom: .7em;
-        margin-top: .7em; */
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -87,37 +72,17 @@
     }
 
     .advertising-hide .content-panel-hide{
-        width: 350px;
-        height: 250px;
+        width: 728px;
+        height: 90px;
         text-align:center;
         margin: auto  ;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        border-radius: 0px;
     }
 
-    #ads-hide1{
-        width: 400px;
-    }
-
-    #ads-hide2{
-        width: 400px;
-    }
     .containers {
         padding: 0 5%;
-    }
-
-    .advertising .content-panel {
-        width: 350px;
-        height: 250px;
-        margin: auto;
-        /* margin-bottom: .7em;
-        margin-top: .7em; */
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 0px;
     }
 
     .slick-arrow {
@@ -176,8 +141,16 @@
 
     }
 
+    .flex-ads{
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -moz-flex;
+        display: -webkit-flex;
+        display: flex;
+        display:flex; justify-content:center;width:750px;margin:0 auto;
 
-
+    }
 
     @media (max-width: 1500px) {
 
@@ -186,40 +159,22 @@
             width: 100%;
         }
 
-        /* .advertising-hide .content-panel-hide{
-            width: 50%;
-        } */
+        .flex-ads{
+            flex-direction: column;
+        } 
 
     }
 
 
     @media (max-width: 1200px) {
 
-        #ads-hide1{
-        width: 150px;
-    }
 
-    #ads-hide2{
-        width: 150px;
-    }
 
-    .advertising-hide .content-panel-hide{
-        width: 150px;
-        height: 100px;
-    }
-    /* .video-js {
-        width: 500px;
-        height: 340px;
-    } */
+
     }
 
 
     @media (max-width: 1500px) {
-        /*    .video-js {
-            width: 170px;
-            height: 440px;
-            margin:auto;
-        } */
 
         .advertising .content-panel {
             width: 100%;
@@ -230,31 +185,15 @@
 
     @media (max-width: 987px) {
 
-        .advertising .content-panel{
-        /*        .video-js {
-            width: 690px;
-            height: 340px;
-        } */
-    }
         .advertising .content-panel {
             width: 350px;
         }
-
-   
-
         .advertising {
-
             margin-top: 2em;
         }
     }
 
     @media (max-width: 763px) {
-
-   
-        /*      .video-js {
-            width: 510px;
-            height: 240px;
-        } */
 
 
     }
@@ -272,22 +211,10 @@
             height: 300px;
         }
 
-        /* .video-js {
-            width: 455px;
-            height: 200px;
-        } */
     }
 
     @media (max-width: 437px) {
-        /* .video-js {
-            width: 430px;
-            height: 200px;
-        } */
 
-        /* .advertising .content-panel{
-            height: 4em;
-            background-size: contain;
-        } */
     }
 
 </style>
@@ -352,34 +279,19 @@
                                 </div>
                             </div>
                             <div class="col-lg-6 embed-responsive embed-responsive-4by3" style="text-align: center;">
-                                <div class="movetovideojs flex">
+                                <div class="movetovideojs " style="width: 100%;text-align: center;display: scroll;position:fixed;bottom: 50px;margin: 0 auto;z-index: 103;">
 <!--                                         <div class="row">
                                         <div class="col-lg-3"> -->
-                                        <div id="ads-hide1" class="advertising-hide hide">
-                                                <div class="row" >
+                                        <div id="ads-hide1" class="advertising-hide hide " style="">
+                                                <div class="flex-ads " style="">
                                                     <?php foreach ($ads as $adsKey => $adsValue) { ?>
                                                         <div id="image-ads-<?php echo $adsKey ?>" class="col-sm-12 py-1" style="">
-                                                            <a href="#" id="close-adss" onclick="document.getElementById('image-ads-<?php echo $adsKey ?>').style.display = 'none';" style="cursor:pointer;"><img src="https://3.bp.blogspot.com/-ZZSacDHLWlM/VhvlKTMjbLI/AAAAAAAAF2M/UDzU4rrvcaI/s1600/btn_close.gif"></a>
+                                                            <a href="#" id="close-ads" onclick="document.getElementById('image-ads-<?php echo $adsKey ?>').style.display = 'none';" style="cursor:pointer;"><img src="https://3.bp.blogspot.com/-ZZSacDHLWlM/VhvlKTMjbLI/AAAAAAAAF2M/UDzU4rrvcaI/s1600/btn_close.gif"></a>
                                                             <div class="content-panel-hide" style="background-image:url(<?php echo base_url('uploads/' . $adsValue['img']) ?>)"></div>
                                                         </div>
                                                     <?php } ?>
                                                 </div>
                                         </div>
-                                        <!-- </div> -->
-                                        <!-- <div class="col-lg-6"></div> -->
-                                        <!-- <div class="col-lg-3"> -->
-                                        <div id="ads-hide2" class="advertising-hide hide">
-                                            <div class="row" >
-                                                <?php foreach ($ads as $adsKey => $adsValue) { ?>
-                                                    <div id="image-ads2-<?php echo $adsKey ?>" class="col-sm-12 py-1" >
-                                                        <a href="#" id="close-ads2" onclick="document.getElementById('image-ads2-<?php echo $adsKey ?>').style.display = 'none';" style="cursor:pointer;"><img src="https://3.bp.blogspot.com/-ZZSacDHLWlM/VhvlKTMjbLI/AAAAAAAAF2M/UDzU4rrvcaI/s1600/btn_close.gif"></a>
-                                                        <div class="content-panel-hide" style="background-image:url(<?php echo base_url('uploads/' . $adsValue['img']) ?>)"></div>
-                                                    </div>
-                                                <?php } ?>
-                                            </div>
-                                        </div>
-                                        <!-- </div>
-                                        </div> -->
                                 </div>
                                 <video autoplay="true" id="my-video" class="video-js videos embed-responsive-item" controls preload="auto" poster="<?php echo base_url('uploads/') . $dataLive['img'] ?>" data-setup="{}">
                                     <source src="<?php echo $dataLive['link'] ?>" type="application/x-mpegURL" />
@@ -395,6 +307,8 @@
                                             </div>
                                         <?php } ?>
                                     </div>
+                                </div>
+                            </div>
                 <div class="container">
                     <?php echo $content['content'] ?>
                 </div>
@@ -405,7 +319,7 @@
 
         <footer id="section5" class="footer" style="padding: 2em;text-align: center;">
             <div class="container">
-                <div class="row ">
+                <div class="row justify-content-center">
                     <div class="col heading">
                         <span>Power by NobarTV.</span>
                     </div>
@@ -439,21 +353,16 @@
 
                     if(this.isFullscreen_){
 
-                        $('#ads-hide1 , #ads-hide2').show();
+                        $('#ads-hide1 ').show();
                         $('#image-ads-0 , #image-ads-1 , #image-ads-2').show();
-                        $('#image-ads2-0 , #image-ads2-1 , #image-ads2-2').show();
 
                         var counter = 0;
                         function showHide() {
                             setTimeout(() => {
                                 
                                 $('#image-ads-0 , #image-ads-1 , #image-ads-2').show();
-                                $('#image-ads2-0 , #image-ads2-1 , #image-ads2-2').show();
-                                // $('#image-ads-'+counter).show();
                                 setTimeout(() => {
                                     $('#image-ads-0 , #image-ads-1 , #image-ads-2').hide();
-                                    $('#image-ads2-0 , #image-ads2-1 , #image-ads2-2').hide();
-                                    // $('#image-ads-'+counter).hide();
 
                                     showHide();
                                 }, 5000);
@@ -462,21 +371,13 @@
 
                         }
 
-                        showHide();
+                        // showHide();
                     
 
                     }else{
 
-                        $('#ads-hide1 , #ads-hide2').hide();
+                        $('#ads-hide1').hide();
                         $('#image-ads-0 , #image-ads-1 , #image-ads-2').hide();
-                        $('#image-ads2-0 , #image-ads2-1 , #image-ads2-2').hide();
-                        // clearInterval(timer);
-
-                        // $('#ads-hide1').fadeOut();
-                        // $('#ads-hide2').fadeOut(); 
-                        // $('#image-ads-0').fadeOut();
-                        // $('#image-ads-1').fadeOut();
-                        // $('#image-ads-2').fadeOut();
                     }
 
                 }); 
