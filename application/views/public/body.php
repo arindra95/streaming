@@ -194,7 +194,11 @@
     }
 
     @media (max-width: 763px) {
-
+        .advertising-hide .content-panel-hide{
+        width: 314px;
+        height: 45px;
+   
+    }
 
     }
 
@@ -283,15 +287,17 @@
 <!--                                         <div class="row">
                                         <div class="col-lg-3"> -->
                                         <div id="ads-hide1" class="advertising-hide hide " style="">
-                                                <div class="flex-ads " style="">
+                                                <div class="row" style="">
                                                     <?php foreach ($ads as $adsKey => $adsValue) { ?>
-                                                        <div id="image-ads-<?php echo $adsKey ?>" class="col-sm-12 py-1" style="">
+                                                        <div id="image-ads-<?php echo $adsKey ?>" class="col" style="">
                                                             <a href="#" id="close-ads" onclick="document.getElementById('image-ads-<?php echo $adsKey ?>').style.display = 'none';" style="cursor:pointer;"><img src="https://3.bp.blogspot.com/-ZZSacDHLWlM/VhvlKTMjbLI/AAAAAAAAF2M/UDzU4rrvcaI/s1600/btn_close.gif"></a>
                                                             <div class="content-panel-hide" style="background-image:url(<?php echo base_url('uploads/' . $adsValue['img']) ?>)"></div>
                                                         </div>
                                                     <?php } ?>
                                                 </div>
                                         </div>
+                                    <!--    </div>
+                                        </div> -->
                                 </div>
                                 <video autoplay="true" id="my-video" class="video-js videos embed-responsive-item" controls preload="auto" poster="<?php echo base_url('uploads/') . $dataLive['img'] ?>" data-setup="{}">
                                     <source src="<?php echo $dataLive['link'] ?>" type="application/x-mpegURL" />
@@ -371,7 +377,7 @@
 
                         }
 
-                        showHide();
+                        // showHide();
                     
 
                     }else{
