@@ -161,9 +161,6 @@
     .embed-responsive{
         height:500px;
     }
-    .embed-responsive {
-        height: 500px;
-    }
 
     .stream-data {
         background-color: #cecece;
@@ -214,7 +211,7 @@
         width: 500px;
         height: 340px;
     } */
-
+    }
 
 
     @media (max-width: 1500px) {
@@ -293,9 +290,6 @@
         } */
     }
 
-
-    @media (max-width: 420px) {
-    }
 </style>
 
 <body>
@@ -401,40 +395,7 @@
                                             </div>
                                         <?php } ?>
                                     </div>
-                <div class="container-fluid">
-                    <div class="row ">
-                        <div class="col-lg-3" style="text-align: center;">
-                            <div class="advertising">
-                                <div class="row">
-                                    <?php foreach ($ads as $adsKey => $adsValue) { ?>
-                                        <div class="col-sm-12 py-1">
-                                            <!-- <img src="<?php echo base_url('uploads/' . $adsValue['img']) ?>" alt=""> -->
-                                            <div class="content-panel" style="background-image:url(<?php echo base_url('uploads/' . $adsValue['img']) ?>)"></div>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 embed-responsive embed-responsive-4by3" style="text-align: center;">
-                            <video autoplay="true" id="my-video" class="video-js embed-responsive-item" controls preload="auto" poster="<?php echo base_url('uploads/') . $dataLive['img'] ?>" data-setup="{}">
-                                <source src="<?php echo $dataLive['link'] ?>" type="application/x-mpegURL" />
-                            </video>
-                        </div>
-                        <div class="col-lg-3" style="text-align: center;">
-                            <div class="advertising">
-                                <div class="row">
-                                    <?php foreach ($ads as $adsKey => $adsValue) { ?>
-                                        <div class="col-sm-12 py-1">
-                                            <!-- <img src="<?php echo base_url('uploads/' . $adsValue['img']) ?>" alt=""> -->
-                                            <div class="content-panel" style="background-image:url(<?php echo base_url('uploads/' . $adsValue['img']) ?>)"></div>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="conatainer">
+                <div class="container">
                     <?php echo $content['content'] ?>
                 </div>
             </div>
@@ -444,10 +405,9 @@
 
         <footer id="section5" class="footer" style="padding: 2em;text-align: center;">
             <div class="container">
-                <div class="row justify-content-center">
+                <div class="row ">
                     <div class="col heading">
                         <span>Power by NobarTV.</span>
-
                     </div>
                 </div>
             </div>
