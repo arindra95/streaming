@@ -195,10 +195,9 @@
 
     @media (max-width: 763px) {
         .advertising-hide .content-panel-hide{
-        width: 314px;
+        width: 370px;
         height: 45px;
-   
-    }
+        }
 
     }
 
@@ -214,6 +213,12 @@
         .embed-responsive {
             height: 300px;
         }
+
+        .advertising-hide .content-panel-hide{
+            width: 230px;
+            height: 25px;
+        }
+
 
     }
 
@@ -377,7 +382,7 @@
 
                         }
 
-                        // showHide();
+                        showHide();
                     
 
                     }else{
