@@ -292,10 +292,10 @@
 <!--                                         <div class="row">
                                         <div class="col-lg-3"> -->
                                         <div id="ads-hide1" class="advertising-hide hide " style="">
+                                                <div style="text-align:right;padding-right:3em;"><a href="#" id="close-ads" onclick="document.getElementById('ads-hide1').style.display = 'none';" style="cursor:pointer;"><img src="https://3.bp.blogspot.com/-ZZSacDHLWlM/VhvlKTMjbLI/AAAAAAAAF2M/UDzU4rrvcaI/s1600/btn_close.gif" style=""></a></div>
                                                 <div class="row" style="">
                                                     <?php foreach ($ads as $adsKey => $adsValue) { ?>
-                                                        <div id="image-ads-<?php echo $adsKey ?>" class="col" style="">
-                                                            <a href="#" id="close-ads" onclick="document.getElementById('image-ads-<?php echo $adsKey ?>').style.display = 'none';" style="cursor:pointer;"><img src="https://3.bp.blogspot.com/-ZZSacDHLWlM/VhvlKTMjbLI/AAAAAAAAF2M/UDzU4rrvcaI/s1600/btn_close.gif"></a>
+                                                        <div id="image-ads-<?php echo $adsKey ?>" class="col py-1" style="">
                                                             <div class="content-panel-hide" style="background-image:url(<?php echo base_url('uploads/' . $adsValue['img']) ?>)"></div>
                                                         </div>
                                                     <?php } ?>
@@ -365,15 +365,18 @@
                     if(this.isFullscreen_){
 
                         $('#ads-hide1 ').show();
+                        $('#close-ads ').show();
                         $('#image-ads-0 , #image-ads-1 , #image-ads-2').show();
 
                         var counter = 0;
                         function showHide() {
                             setTimeout(() => {
-                                
+                                $('#close-ads ').show();
+
                                 $('#image-ads-0 , #image-ads-1 , #image-ads-2').show();
                                 setTimeout(() => {
                                     $('#image-ads-0 , #image-ads-1 , #image-ads-2').hide();
+                                    $('#close-ads ').hide();
 
                                     showHide();
                                 }, 5000);
@@ -388,6 +391,7 @@
                     }else{
 
                         $('#ads-hide1').hide();
+                        $('#close-ads').hide();
                         $('#image-ads-0 , #image-ads-1 , #image-ads-2').hide();
                     }
 
