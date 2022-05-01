@@ -366,17 +366,19 @@
 
                         $('#ads-hide1 ').show();
                         $('#close-ads ').show();
-                        $('#image-ads-0 , #image-ads-1 , #image-ads-2').show();
+                        // $('#image-ads-0 , #image-ads-1 , #image-ads-2').show();
 
                         var counter = 0;
                         function showHide() {
                             setTimeout(() => {
                                 $('#close-ads ').show();
+                                $('#ads-hide1 ').show();
 
                                 $('#image-ads-0 , #image-ads-1 , #image-ads-2').show();
                                 setTimeout(() => {
+                                    $('#ads-hide1 ').hide();
                                     $('#image-ads-0 , #image-ads-1 , #image-ads-2').hide();
-                                    $('#close-ads ').hide();
+                                    $('#close-ads').hide();
 
                                     showHide();
                                 }, 5000);
